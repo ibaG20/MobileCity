@@ -1,27 +1,49 @@
-# MobileCityApp
+# NODE-ANGULAR CHALLENGE – MOBILE CITY APP
+## Sobre
+Este repositório se propõe a trazer um sistema simples, a qual tem como estrutura, uma API NODE (Gabriella Rodrigues) consumida através de uma aplicação Angular (Carlos Costa), onde o objetivo foi o de praticar estas tecnologias a nível de conhecimento geral durante o curso de extensão do programa STARTER 4.
+O sistema consiste de alguns CRUDs básicos com regras de negócio simples, onde basicamente existem 4 entidades, sendo elas: Usuário (utilizador do sistema, apenas para o controle de autenticação e desbloqueio de todas as funcionalidades), cliente, transporte e locação, que se relacionam conforme o diagrama UML abaixo:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+<img src="UML.png">
 
-## Development server
+## Algumas destas regras de negócio e validações são as seguintes:
+- Validação de um cliente já existente baseada no CPF durante a criação de uma nova instância (POST .../clients).
+- Validação de campos nulos ou inválidos (email) na criação de um novo cliente. 
+- O cadastro de um cliente não pode ser desativado caso haja locações pendentes associadas a ele.
+- Não são permitidas deleções de dados no banco, mas apenas deleções lógicas, onde o status da entidade passa a ser false.
+- O verbo HTTP Delete em /rents foi utilizado para “baixar” a locação, dando-a como concluída e liberando o transporte associado a ela para ser locado novamente.
+- Só é possível gerar locações para clientes com cadastro ativo e transportes disponíveis.
+- Detalhes do cliente com o histórico de locações associados a este. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Para rodar a aplicação, basta seguir os seguintes passos: 
 
-## Code scaffolding
+<u>Atualizando os pacotes e módulos:</u>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`npm update`
 
-## Build
+<u>Navegando até a pasta do back-end:</u>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`cd .\Backend\`
 
-## Running unit tests
+<u>Rodando o back-end:</u>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`yarn dev`
 
-## Running end-to-end tests
+<u>Navegando até a pasta do front-end:</u>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`cd .\Frontend\MobileCityApp\`
 
-## Further help
+<u>Rodando o front-end:</u>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`ng s`
+
+## Informações
+
+- Documentação da API: http://localhost:3333/api-docs/
+- Angular CLI: 14.1.2
+- Node: 16.15.0
+- Package Manager: npm 8.5.5
+- OS: win32 x64
+
+## Aplicação
+
+<img src="AppScreen.png">

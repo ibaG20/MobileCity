@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.edit {
+  margin-right: 10px;
+}
+.edit > i{
+  color: #FFBE59;
+}
+
+.delete > i{
+  color: crimson;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

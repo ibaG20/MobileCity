@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title> Delete Client</mat-card-title>
+  <form>
+      <mat-form-field>
+          <input matInput placeholder="Name" disabled [value]="client.name">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="CPF" disabled name="cpf" [value]="client.cpf">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Email" disabled name="email" [value]="client.email">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Phone" disabled name="phone" [value]="client.phone">
+      </mat-form-field>
+  </form>
+</mat-card>
+
+<button mat-raised-button (click)="deleteClient()" color="warn">Delete</button>
+<button mat-raised-button (click)="cancel()" color="secondary">Cancel</button>

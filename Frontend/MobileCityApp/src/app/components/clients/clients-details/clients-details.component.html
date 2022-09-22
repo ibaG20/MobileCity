@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-title> Client Informations</mat-card-title>
+  <form>
+      <mat-form-field>
+          <input matInput placeholder="Name" disabled [value]="client.name">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="CPF" disabled name="cpf" [value]="client.cpf">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Email" disabled name="email" [value]="client.email">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Phone" disabled name="phone" [value]="client.phone">
+      </mat-form-field>
+  </form>
+</mat-card>
+
+<mat-card>
+  <mat-card-title> Client Rents History</mat-card-title>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let row">{{row.date | date : 'dd/MM/yyyy'}}</td>
+      </ng-container>
+
+      <!-- Transport Column -->
+      <ng-container matColumnDef="transport">
+        <th mat-header-cell *matHeaderCellDef>Transport ID</th>
+        <td mat-cell *matCellDef="let row">{{row.transportId}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="6">
+    </mat-paginator>
+  </div>
+</mat-card>
+

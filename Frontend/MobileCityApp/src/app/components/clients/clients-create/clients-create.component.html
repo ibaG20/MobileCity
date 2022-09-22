@@ -1,0 +1,33 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-title> New Client</mat-card-title>
+  <form class="Form fadeInDown" [formGroup]="createClientModel" (submit)="createClient()" #formDir="ngForm">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Name" formControlName="name" required name="name">
+      <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="name.errors?.['required']">Name is required!</p>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Email" formControlName="email" required name="email">
+      <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="email.errors?.['required']">Email is required!</p>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="CPF" formControlName="cpf" required name="cpf">
+      <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="name.errors?.['required']">CPF is required!</p>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Phone" formControlName="phone" required name="phone">
+      <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="name.errors?.['required']">Phone is required!</p>
+      </div>
+    </mat-form-field>
+    <div class="buttoncss">
+      <button mat-raised-button type="submit" color="primary">Save</button>
+      <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+    </div>
+  </form>
+</mat-card>

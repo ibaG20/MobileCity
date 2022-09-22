@@ -1,0 +1,694 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mobile City",
+        "descrição": "API para controle de aluguel de veículos não motorizados.",
+        "contact": {
+            "name": "Gabriella Marreto e Carlos Diego Ferreira"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333",
+            "description": "API"
+        }
+    ],
+    "paths": {
+        "/clients": {
+            "post": {
+                "summary": "Create new client",
+                "description": "Add a new client",
+                "tags": [
+                    "Clients"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Client"
+                            },
+                            "examples": {
+                                "client": {
+                                    "value": {
+                                        "cpf": "111.111.111-11",
+                                        "name": "Maria da Silva",
+                                        "phone": "(22)22222-2222",
+                                        "email": "maria@gmail.com",
+                                        "status": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Client already exists!"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Client"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all clients",
+                "description": "Return all clients",
+                "tags": [
+                    "Clients"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Client"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clients/{id}": {
+            "get": {
+                "summary": "Get client by id",
+                "description": "Find client by id",
+                "tags": [
+                    "Clients"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Client by id",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Client"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update client by id",
+                "description": "Updates a client",
+                "tags": [
+                    "Clients"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update client",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Client"
+                            },
+                            "examples": {
+                                "client": {
+                                    "value": {
+                                        "cpf": "333.333.333-33",
+                                        "name": "Silva da Maria",
+                                        "phone": "(44)44444-4444",
+                                        "email": "silva@gmail.com",
+                                        "status": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Client"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete client by id",
+                "description": "Deletes a client",
+                "tags": [
+                    "Clients"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Delete client",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Client can't be deleted!"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Client"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transports":{
+            "post": {
+                "summary": "Create new transport",
+                "description": "Add a new transport",
+                "tags": [
+                    "Transports"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Transport"
+                            },
+                            "examples": {
+                                "transport": {
+                                    "value": {
+                                        "serialNumber": 123,
+                                        "type": "bike",
+                                        "status": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Transport already exists!"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Transport"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all transports",
+                "description": "Return all transports",
+                "tags": [
+                    "Transports"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Transport"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transports/{id}": {
+            "get": {
+                "summary": "Get transport by id",
+                "description": "Find transport by id",
+                "tags": [
+                    "Transports"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Transport by id",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Transport"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update transport by id",
+                "description": "Updates a transport",
+                "tags": [
+                    "Transports"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update transport",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Transport"
+                            },
+                            "examples": {
+                                "transport": {
+                                    "value": {
+                                        "serialNumber": 876,
+                                        "type": "Scooter",
+                                        "status": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Transport"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rents": {
+            "post": {
+                "summary": "Create new rent",
+                "description": "Add a new rent",
+                "tags": [
+                    "Rents"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Rents"
+                            },
+                            "examples": {
+                                "rent": {
+                                    "value": {
+                                        "clientId": 1,
+                                        "transportId": 2,
+                                        "status": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Rents cannot be created!"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Rents"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all rents",
+                "description": "Return all rents",
+                "tags": [
+                    "Rents"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Rents"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rents/{id}": {
+            "get": {
+                "summary": "Get rent by id",
+                "description": "Find rent by id",
+                "tags": [
+                    "Rents"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Rent by id",
+                        "required": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Rents"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Finish rent",
+                "description": "Finish rent",
+                "tags": [
+                    "Rents"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Finish rent",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Rents"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Transport"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "post": {
+                "summary": "Create new user",
+                "description": "Add a new user",
+                "tags": [
+                    "Users"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "name": "new_user",
+                                        "email": "user@gmail.com",
+                                        "password": "1234"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "User already exists!"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Users"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get all users",
+                "description": "Return all users",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Users"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "put": {
+                "summary": "Update user by id",
+                "description": "Updates a user",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update user",
+                        "required": "true"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "name": "user_new",
+                                        "email": "new@gmail.com",
+                                        "password": "4321"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Users"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "summary": "Authenticate user",
+                "description": "Authenticate user",
+                "tags": [
+                    "Users"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Authenticate"
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "email": "new@gmail.com",
+                                        "password": "4321"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Authenticate"
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+        
+    },
+    
+    "components": {
+        "schemas": {
+            "Client": {
+                "type": "object",
+                "properties": {
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Transport": {
+                "type": "object",
+                "properties": {
+                    "serialNumber": {
+                        "type": "number"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Rents": {
+                "type":"object",
+                "properties": {
+                    "clientId": {
+                        "type": "id"
+                    },
+                    "transportId":{
+                        "type": "id"
+                    }, 
+                    "status": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Users": {
+                "type":"object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "email":{
+                        "type": "string"
+                    }, 
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Authenticate": {
+                "type":"object",
+                "properties": {
+                    "email":{
+                        "type": "string"
+                    }, 
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

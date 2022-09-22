@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>Finalize Rent</mat-card-title>
+  <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Rent ID</mat-label>
+          <input matInput disabled name="id" [value]="rent.id">
+      </mat-form-field >
+      <mat-label>Rent Date</mat-label>
+      <mat-form-field appearance="fill">
+          <input matInput disabled name="date" [value]="rent.date">
+      </mat-form-field>
+      <mat-label>Client ID</mat-label>
+      <mat-form-field appearance="fill">
+          <input matInput disabled name="clientId" [value]="rent.clientId">
+      </mat-form-field>
+      <mat-label>Transport ID</mat-label>
+      <mat-form-field appearance="fill">
+          <input matInput disabled name="transportId"[value]="rent.transportId">
+      </mat-form-field>
+  </form>
+</mat-card>
+
+<button mat-raised-button (click)="finishRent()" class="finalizeButton">Finish</button>
+<button mat-raised-button (click)="cancel()" color="secondary">Cancel</button>

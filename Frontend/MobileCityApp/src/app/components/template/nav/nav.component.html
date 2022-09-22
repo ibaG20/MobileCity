@@ -1,0 +1,15 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+      <mat-nav-list class="nav-list" [ngSwitch]="accountService.isUserLoggedIn()">
+          <a mat-list-item routerLink="/"><i class="material-icons">home</i>Home</a>
+          <a mat-list-item *ngSwitchCase="true" routerLink="clients"><i class="material-icons">person</i>Clients</a>
+          <a mat-list-item *ngSwitchCase="true" routerLink="transports"><i class="material-icons">directions_bike</i>Transports</a>
+          <a mat-list-item *ngSwitchCase="true" routerLink="rents"><i class="material-icons">history</i>Rents</a>
+          <a mat-list-item *ngSwitchCase="true" (click) = "logout()"><i class="material-icons">history</i>Logout</a>
+
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

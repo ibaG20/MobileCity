@@ -1,0 +1,27 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-title> New Rent</mat-card-title>
+  <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Client</mat-label>
+        <mat-select type="number" [(ngModel)]="clientIdProv" name="clientId" required (ngModelChange)="onAddClient()">
+          <ng-container *ngFor="let client of clients">
+            <ng-container *ngIf="client.status == true">
+              <mat-option value={{client.id}}> {{client.name}}</mat-option>
+            </ng-container>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Transport</mat-label>
+        <mat-select type="number" [(ngModel)]="transportIdProv" name="transportId" required (ngModelChange)="onAddTransport()">
+          <ng-container *ngFor="let transport of transports">
+            <ng-container *ngIf="transport.status == true">
+              <mat-option value={{transport.id}}>ID: {{transport.id}} - {{transport.type}}</mat-option>
+            </ng-container>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+  </form>
+</mat-card>
+<button mat-raised-button (click)="createRent()" color="primary">Save</button>
+<button mat-raised-button (click)="cancel()" color="warn">Cancel</button>

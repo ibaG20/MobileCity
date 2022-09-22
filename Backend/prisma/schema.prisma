@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id     Int     @id @default(autoincrement())
+  cpf    String  @unique
+  name   String
+  phone  String
+  email  String
+  status Boolean
+  rent   Rent[]
+  //lease  Lease[] @relation("client")
+
+  @@map("clients")
+}
+
+model Transport {
+  id           Int      @id @default(autoincrement())
+  registerDate DateTime @default(now())
+  serialNumber Int      @unique
+  type         String
+  status       Boolean
+  rent         Rent[]
+  //lease        Lease[]  @relation("transport")
+
+  @@map("transports")
+}
+
+model Rent {
+  id          Int        @id @default(autoincrement())
+  client      Client?    @relation(fields: [clientId], references: [id])
+  transport   Transport? @relation(fields: [transportId], references: [id])
+  clientId    Int?
+  transportId Int?
+  date        DateTime   @default(now())
+  status      Boolean
+
+  @@map("rents")
+}
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+
+  @@map("users")
+}

@@ -1,0 +1,26 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-title>Create New Account</mat-card-title>
+  <hr>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" name="name" [(ngModel)]="account.name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Username" name="email" [(ngModel)]="account.email">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Password" name="password" [(ngModel)]="account.password">
+        </mat-form-field>
+      </p>
+      <div class="button">
+        <button mat-raised-button type="submit" color="primary">Create</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

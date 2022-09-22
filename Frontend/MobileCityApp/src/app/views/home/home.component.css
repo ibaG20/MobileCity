@@ -1,0 +1,21 @@
+.home .title {
+  display: flex;
+  align-items: flex-end;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.home .subtitle {
+  font-size: 1.1rem;
+}
+
+.external{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mat-card{
+  margin-bottom: 15px;
+}

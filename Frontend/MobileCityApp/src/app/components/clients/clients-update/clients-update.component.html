@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title> Update Client</mat-card-title>
+  <form>
+      <mat-form-field>
+          <input matInput placeholder="Name" [(ngModel)]="client.name" name="name">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="CPF" [(ngModel)]="client.cpf" name="cpf">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Email" [(ngModel)]="client.email" name="email">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Phone" [(ngModel)]="client.phone" name="phone">
+      </mat-form-field>
+  </form>
+</mat-card>
+
+<button mat-raised-button (click)="updateClient()" color="primary">Save</button>
+<button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+<div *ngIf="client.status == false">
+  <button mat-raised-button (click)="reactiveClient()" color="accent">Reactive</button>
+</div>

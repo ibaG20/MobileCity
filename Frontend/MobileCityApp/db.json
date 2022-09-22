@@ -1,0 +1,124 @@
+{
+  "clients": [
+    {
+      "id": "1",
+      "cpf": "385.195.029-71",
+      "name": "Luciane Silva",
+      "phone": "(62)99331-0267",
+      "email": "luciane@gft.com.br",
+      "status": true
+    },
+    {
+      "id": "2",
+      "cpf": "092.243.824-60",
+      "name": "Carlos Costa",
+      "phone": "(81)99332-0265",
+      "email": "carlos@gft.com",
+      "status": true
+    },
+    {
+      "id": "3",
+      "cpf": "444.203.284-34",
+      "name": "Gabriella Morais",
+      "phone": "(81)98334-0265",
+      "email": "gabriella@gft.com",
+      "status": true
+    },
+    {
+      "id": "4",
+      "cpf": "385.195.029-71",
+      "name": "Felipe Smith",
+      "phone": "(62)98431-0267",
+      "email": "felipe@gft.com.br",
+      "status": true
+    },
+    {
+      "id": "5",
+      "cpf": "089.243.824-60",
+      "name": "Moana Barros",
+      "phone": "(81)97832-0265",
+      "email": "moana@gft.com",
+      "status": true
+    },
+    {
+      "id": "6",
+      "cpf": "600.203.284-34",
+      "name": "Natalya Colt",
+      "phone": "(81)97534-0265",
+      "email": "natalya@gft.com",
+      "status": true
+    },
+    {
+      "id": "7",
+      "cpf": "155.195.029-71",
+      "name": "Diogo Cunha",
+      "phone": "(62)99931-0267",
+      "email": "diogo@gft.com.br",
+      "status": true
+    },
+    {
+      "id": "8",
+      "cpf": "098.243.824-60",
+      "name": "Bruno Cesar",
+      "phone": "(81)98932-0265",
+      "email": "bruno@gft.com",
+      "status": true
+    },
+    {
+      "id": "9",
+      "cpf": "342.203.284-34",
+      "name": "Breno Gomes",
+      "phone": "(81)98534-0265",
+      "email": "breno@gft.com",
+      "status": true
+    },
+    {
+      "id": "10",
+      "cpf": "765.195.029-71",
+      "name": "André Cezar",
+      "phone": "(62)97731-0267",
+      "email": "andre@gft.com.br",
+      "status": true
+    },
+    {
+      "id": "11",
+      "cpf": "112.243.824-60",
+      "name": "Arcenio Souza",
+      "phone": "(81)99032-0265",
+      "email": "arcenio@gft.com",
+      "status": true
+    },
+    {
+      "id": "12",
+      "cpf": "893.203.284-34",
+      "name": "Yasmin Fernandes",
+      "phone": "(81)99134-0265",
+      "email": "yasmin@gft.com",
+      "status": true
+    }
+  ],
+  "transports": [
+    {
+      "id": "1",
+      "registerDate": "02/09/2022",
+      "serialNumber": "2550",
+      "type": "Bike",
+      "status": true
+    },
+    {
+      "serialNumber": "2341",
+      "registerDate": "02/09/2022",
+      "type": "Scooter",
+      "status": true,
+      "id": "CI8fdyW"
+    }
+  ],
+  "rents": [
+    {
+      "id": "1",
+      "date": "02/09/2022",
+      "clientId": "1",
+      "transportId": "1"
+    }
+  ]
+}
